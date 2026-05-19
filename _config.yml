@@ -4,6 +4,9 @@ description: "Official portal for Chorale Saint Padre Pio — scores, news, gall
 baseurl: "/chorale-spp.github.io"
 url: "https://chorale-spp.github.io"
 
+theme: minima
+
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
