@@ -1,11 +1,11 @@
 title: "Chorale Saint Padre Pio"
 tagline: "Where voices become one"
 description: "Official portal for Chorale Saint Padre Pio — scores, news, gallery, and vocal tips."
-baseurl: "/chorale-spp.github.io"
-url: "https://chorale-spp.github.io"
+baseurl: ""
+url: "https://github.io"
 
+# Theme settings
 theme: minima
-
 
 # Build settings
 markdown: kramdown
@@ -31,10 +31,6 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-remote-theme
-
 
 # Sass
 sass:
