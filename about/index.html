@@ -1,0 +1,126 @@
+---
+layout: default
+title: About the Ensemble
+description: "Learn about Chorale Saint Padre Pio — our story, our values, and what unites us in song."
+permalink: /about/
+---
+
+<div class="page-header">
+  <div class="section-eyebrow">Our Story</div>
+  <h1 class="section-title">About the <em>Ensemble</em></h1>
+  <div class="divider"></div>
+</div>
+
+<section class="section section--white">
+  <div class="about-inner">
+    <p>We are a community of voices united by a shared love of <em>choral music</em> — from timeless sacred works to vibrant contemporary arrangements. Founded in 2022 under the patronage of Saint Padre Pio, our chorale has grown into a family bound not only by song, but by faith, purpose, and fellowship.</p>
+    <p>This portal is our shared space — a place to stay connected, <em>access our repertoire</em>, celebrate our moments together, and deepen the craft we hold dear.</p>
+    <p><em>Every voice matters. Every voice belongs.</em></p>
+  </div>
+
+  <div class="values-grid" style="margin-top:3.5rem">
+    <div class="value-card">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="value-title">Passion</div>
+      <div class="value-text">Music is not a task — it is a calling we answer together.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="value-title">Community</div>
+      <div class="value-text">We are stronger, richer, and more resonant as one.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="value-title">Excellence</div>
+      <div class="value-text">We pursue beauty with diligence, humility, and joy.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="value-title">Faith</div>
+      <div class="value-text">Our voices rise as one offering of praise and devotion.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Rehearsal Info -->
+<section class="section">
+  <div style="max-width:700px;margin:0 auto">
+    <div class="section-header" style="text-align:left;margin-bottom:2rem">
+      <div class="section-eyebrow">Join Us</div>
+      <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem)">Rehearsal <em>Schedule</em></h2>
+      <div class="divider" style="margin:1rem 0 0;text-align:left"></div>
+    </div>
+    {% if site.data.rehearsal %}
+    {% assign r = site.data.rehearsal %}
+    <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      {% if r.day %}
+      <div style="background:var(--white);border:1px solid var(--beige);border-radius:var(--radius);padding:1.5rem">
+        <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Day</div>
+        <div style="font-family:var(--serif);font-size:1.1rem;color:var(--black)">{{ r.day }}</div>
+      </div>
+      {% endif %}
+      {% if r.time %}
+      <div style="background:var(--white);border:1px solid var(--beige);border-radius:var(--radius);padding:1.5rem">
+        <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Time</div>
+        <div style="font-family:var(--serif);font-size:1.1rem;color:var(--black)">{{ r.time }}</div>
+      </div>
+      {% endif %}
+      {% if r.location %}
+      <div style="background:var(--white);border:1px solid var(--beige);border-radius:var(--radius);padding:1.5rem">
+        <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Location</div>
+        <div style="font-family:var(--serif);font-size:1.1rem;color:var(--black)">{{ r.location }}</div>
+      </div>
+      {% endif %}
+    </div>
+    {% else %}
+    <p style="font-family:var(--serif);font-size:1.05rem;color:var(--muted);font-style:italic">Contact us for rehearsal details.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section--white">
+  <div class="section-header">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Contact <em>Us</em></h2>
+    <div class="divider"></div>
+    <p class="section-lead">Interested in joining or have a question? We'd love to hear from you.</p>
+  </div>
+  <div class="contact-wrap">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field-group">
+        <label for="contact-name">Your Name</label>
+        <input type="text" id="contact-name" name="name" placeholder="Marie Dupont" required>
+      </div>
+      <div class="field-group">
+        <label for="contact-email">Email Address</label>
+        <input type="email" id="contact-email" name="email" placeholder="marie@email.com" required>
+      </div>
+      <div class="field-group">
+        <label for="contact-subject">Subject</label>
+        <select id="contact-subject" name="subject">
+          <option value="">Choose a topic…</option>
+          <option value="joining">Joining the choir</option>
+          <option value="performance">Booking a performance</option>
+          <option value="general">General question</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" placeholder="Your message…" required></textarea>
+      </div>
+      <button type="submit" class="btn-gold">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>

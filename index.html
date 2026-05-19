@@ -1,0 +1,128 @@
+---
+layout: default
+title: Home
+description: "Chorale Saint Padre Pio — Where voices become one. Your home for scores, news, and the art of choral singing."
+---
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg" style="--hero-img: url('{{ site.hero_image | default: '/assets/images/hero.jpg' | relative_url }}')"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 2022 · Chorale Saint Padre Pio</div>
+    <h1 class="hero-title">Where <em>voices</em><br>become one</h1>
+    <p class="hero-subtitle">Your home for scores, news, and the art of choral singing.</p>
+    <a href="{{ '/news/' | relative_url }}" class="hero-cta">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Explore the Portal
+    </a>
+  </div>
+</section>
+
+<!-- ═══ QUICK TILES ════════════════════════════════════════════════ -->
+<section class="section section--white">
+  <div class="section-header">
+    <div class="section-eyebrow">What's Inside</div>
+    <h2 class="section-title">Everything your <em>choir needs</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="tile-grid">
+    <a href="{{ '/news/' | relative_url }}" class="tile">
+      <div class="tile-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </div>
+      <div class="tile-title">Latest News</div>
+      <div class="tile-text">Rehearsal schedules, announcements, and updates.</div>
+    </a>
+    <a href="{{ '/gallery/' | relative_url }}" class="tile">
+      <div class="tile-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+      <div class="tile-title">Gallery</div>
+      <div class="tile-text">Memories from performances, retreats, and gatherings.</div>
+    </a>
+    <a href="{{ '/scores/' | relative_url }}" class="tile">
+      <div class="tile-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <div class="tile-title">Music Scores</div>
+      <div class="tile-text">Download and study the repertoire at any time.</div>
+    </a>
+    <a href="{{ '/vocal-tips/' | relative_url }}" class="tile">
+      <div class="tile-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </div>
+      <div class="tile-title">Vocal Tips</div>
+      <div class="tile-text">Articles and guides to grow as a singer.</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ LATEST NEWS PREVIEW ════════════════════════════════════════ -->
+{% assign news_items = site.data.news | sort: 'date' | reverse | limit: 3 %}
+{% if news_items and news_items.size > 0 %}
+<section class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Stay Informed</div>
+    <h2 class="section-title">Recent <em>News</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="news-grid">
+    {% for item in news_items %}
+    <article class="news-card">
+      <div class="news-date">{{ item.date | date: "%B %-d, %Y" }}</div>
+      <h3 class="news-title">{{ item.title }}</h3>
+      <p class="news-body">{{ item.body | truncatewords: 30 }}</p>
+      <div class="news-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Announcement
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="{{ '/news/' | relative_url }}" class="btn-outline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      All News
+    </a>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══ LATEST VOCAL TIPS PREVIEW ══════════════════════════════════ -->
+{% assign recent_posts = site.posts | limit: 3 %}
+{% if recent_posts and recent_posts.size > 0 %}
+<section class="section section--white">
+  <div class="section-header">
+    <div class="section-eyebrow">Grow as a Singer</div>
+    <h2 class="section-title">Latest <em>Vocal Tips</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="posts-grid">
+    {% for post in recent_posts %}
+    <a href="{{ post.url | relative_url }}" class="post-card">
+      <div class="post-card-accent"></div>
+      <div class="post-card-body">
+        {% if post.tags and post.tags.size > 0 %}<span class="post-tag">{{ post.tags | first }}</span>{% endif %}
+        <div class="post-card-title">{{ post.title }}</div>
+        <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</div>
+        <div class="read-more">
+          Read more
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+      <div class="post-card-footer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {{ post.date | date: "%B %-d, %Y" }}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="{{ '/vocal-tips/' | relative_url }}" class="btn-outline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      All Vocal Tips
+    </a>
+  </div>
+</section>
+{% endif %}

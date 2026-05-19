@@ -1,0 +1,28 @@
+# Sample scores — replace file paths with real PDFs in /assets/scores/
+- name: "Hallelujah Chorus"
+  composer: "G. F. Handel"
+  voice_part: "SATB"
+  description: "From Messiah, HWV 56"
+  date: "2024-05-01"
+  file: "/assets/scores/hallelujah-chorus.pdf"
+
+- name: "Ave Maria"
+  composer: "Franz Schubert"
+  voice_part: "Soprano"
+  description: "D. 839 — Solo arrangement"
+  date: "2024-04-15"
+  file: "/assets/scores/ave-maria-schubert.pdf"
+
+- name: "O Magnum Mysterium"
+  composer: "Tomas Luis de Victoria"
+  voice_part: "SATB"
+  description: "Motet for four voices"
+  date: "2024-03-20"
+  file: "/assets/scores/o-magnum-mysterium.pdf"
+
+- name: "Panis Angelicus"
+  composer: "César Franck"
+  voice_part: "Tenor"
+  description: "From Messe à trois voix, Op. 12"
+  date: "2024-02-10"
+  file: "/assets/scores/panis-angelicus.pdf"

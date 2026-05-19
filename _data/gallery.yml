@@ -1,0 +1,25 @@
+# Sample gallery entries — replace src with real image paths or URLs.
+# Place images in /assets/images/gallery/
+- src: "/assets/images/gallery/placeholder-1.jpg"
+  caption: "Christmas Concert 2023"
+  category: "Performances"
+
+- src: "/assets/images/gallery/placeholder-2.jpg"
+  caption: "Rehearsal — Spring Season"
+  category: "Rehearsals"
+
+- src: "/assets/images/gallery/placeholder-3.jpg"
+  caption: "Feast Day Celebration"
+  category: "Celebrations"
+
+- src: "/assets/images/gallery/placeholder-4.jpg"
+  caption: "Easter Vigil 2024"
+  category: "Performances"
+
+- src: "/assets/images/gallery/placeholder-5.jpg"
+  caption: "Annual Retreat"
+  category: "Celebrations"
+
+- src: "/assets/images/gallery/placeholder-6.jpg"
+  caption: "Outdoor Rehearsal"
+  category: "Rehearsals"
