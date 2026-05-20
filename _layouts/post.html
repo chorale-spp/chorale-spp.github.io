@@ -38,7 +38,7 @@ layout: default
   {% assign related = site.posts | where_exp: "p", "p.url != page.url" | limit: 3 %}
   {% if related.size > 0 %}
   <hr style="border:none;border-top:1px solid var(--beige);margin:3rem 0 2rem">
-  <h3 style="font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--black);margin-bottom:1.5rem;font-style:italic">More Vocal Tips</h3>
+  <h3 style="font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--black);margin-bottom:1.5rem;font-style:italic">More <em style="color:var(--gold)">Vocal Tips</em></h3>
   <div style="display:flex;flex-direction:column;gap:.75rem">
     {% for p in related %}
     <a href="{{ p.url | relative_url }}" style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--white);border:1px solid var(--beige);border-radius:var(--radius);transition:border-color .2s;text-decoration:none" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--beige)'">
