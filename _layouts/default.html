@@ -63,9 +63,20 @@
   function toggleMenu() {
     const nav = document.getElementById('navLinks');
     const btn = document.getElementById('hamburger');
+    const brand = document.querySelector('.nav-brand');
+    const siteNav = document.getElementById('siteNav');
     const open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      siteNav.style.background = 'var(--black)';
+      siteNav.style.borderBottomColor = 'rgba(212,172,66,.25)';
+      if (brand) brand.style.color = 'rgba(255,255,255,.75)';
+    } else {
+      siteNav.style.background = '';
+      siteNav.style.borderBottomColor = '';
+      if (brand) brand.style.color = '';
+    }
   }
 
   // Close menu on link click (mobile)
@@ -74,6 +85,11 @@
       document.getElementById('navLinks').classList.remove('open');
       document.getElementById('hamburger').classList.remove('open');
       document.body.style.overflow = '';
+      const siteNav = document.getElementById('siteNav');
+      const brand = document.querySelector('.nav-brand');
+      siteNav.style.background = '';
+      siteNav.style.borderBottomColor = '';
+      if (brand) brand.style.color = '';
     });
   });
 
