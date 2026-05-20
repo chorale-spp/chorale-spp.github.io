@@ -63,20 +63,45 @@ input, textarea, select { font: inherit; }
   height: 64px;
 }
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
   font-family: var(--serif);
-  font-size: clamp(.95rem, 3vw, 1.2rem);
+  font-size: clamp(.9rem, 2.8vw, 1.15rem);
   font-weight: 500;
   letter-spacing: .04em;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 52vw;
+  max-width: 60vw;
   flex-shrink: 1;
+  text-decoration: none;
 }
 .nav-brand em {
   color: var(--gold);
   font-style: italic;
+}
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 1.5px solid var(--gold);
+  flex-shrink: 0;
+  display: block;
+  box-shadow: 0 1px 6px rgba(184,150,46,.25);
+  transition: box-shadow .2s, transform .2s;
+}
+.nav-brand:hover .nav-logo {
+  box-shadow: 0 2px 12px rgba(184,150,46,.4);
+  transform: scale(1.05);
+}
+/* On mobile, slightly smaller logo */
+@media (max-width: 780px) {
+  .nav-logo { width: 30px; height: 30px; }
+  .nav-brand span { display: none; }
 }
 .nav-links {
   display: flex; align-items: center; gap: 2rem;
