@@ -12,13 +12,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" type="text/css">
-  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/images/choir-logo.jpg' | relative_url }}" type="image/jpeg">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/choir-logo.jpg' | relative_url }}">
 </head>
 <body>
 
 <!-- ═══ NAV ════════════════════════════════════════════════════════ -->
 <nav class="site-nav" id="siteNav">
-  <a href="{{ '/' | relative_url }}" class="nav-brand">Chorale <em>Saint Padre Pio</em></a>
+  <a href="{{ '/' | relative_url }}" class="nav-brand">
+    <img src="{{ '/assets/images/choir-logo.jpg' | relative_url }}" alt="Chorale Saint Padre Pio" class="nav-logo">
+    <span>Chorale <em>Saint Padre Pio</em></span>
+  </a>
 
   <div class="nav-links" id="navLinks">
     <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a>
