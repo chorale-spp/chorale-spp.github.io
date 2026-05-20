@@ -1,7 +1,7 @@
 # Sample news items — edit or add entries here.
 # Format: title, date (YYYY-MM-DD), body
 - title: "Welcome to Our New Website"
-  date: "2024-05-19"
+  date: "2026-05-20"
   body: "We are delighted to launch our new choir portal. Here you will find all our scores, news, a growing gallery of our moments together, and vocal tips to help every voice flourish. Welcome home."
 
 - title: "Spring Concert — Save the Date"
@@ -9,5 +9,5 @@
   body: "Our spring concert is confirmed for Saturday, 22 June 2024 at 7:00 PM. Venue details and programme to follow. All members are expected to attend the final rehearsal on the 18th."
 
 - title: "New Scores Available"
-  date: "2024-04-20"
+  date: "2026-05-20"
   body: "Three new scores have been added to the library: Handel's Messiah excerpts (all voices), a new offertory in three parts, and our Pentecost anthem. Please download and prepare your parts before next rehearsal."
