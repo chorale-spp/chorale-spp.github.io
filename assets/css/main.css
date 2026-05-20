@@ -98,10 +98,10 @@ input, textarea, select { font: inherit; }
   box-shadow: 0 2px 12px rgba(184,150,46,.4);
   transform: scale(1.05);
 }
-/* On mobile, slightly smaller logo */
+/* On mobile, slightly smaller logo and text */
 @media (max-width: 780px) {
   .nav-logo { width: 30px; height: 30px; }
-  .nav-brand span { display: none; }
+  .nav-brand { font-size: .8rem; gap: .5rem; max-width: 70vw; }
 }
 .nav-links {
   display: flex; align-items: center; gap: 2rem;
@@ -1079,3 +1079,4 @@ input, textarea, select { font: inherit; }
     transition-duration: .01ms !important;
   }
 }
+
