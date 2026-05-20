@@ -91,5 +91,58 @@
 {% if page.layout == 'gallery' or page.url contains '/gallery' %}
 <script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
 {% endif %}
+
+<script>
+// ── Scroll-reveal observer ──────────────────────────────────────────────────
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  function initReveal() {
+    // Section headers
+    document.querySelectorAll('.section-header').forEach(function(el) {
+      io.observe(el);
+    });
+    // Individual cards as a group
+    document.querySelectorAll('.tile-grid, .news-grid, .posts-grid, .values-grid, .gallery-grid').forEach(function(el) {
+      el.classList.add('reveal-group');
+      io.observe(el);
+    });
+    // Score items one by one
+    document.querySelectorAll('.score-item').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // Related cards in post
+    document.querySelectorAll('.related-card').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 0.1) + 's';
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // Page header
+    document.querySelectorAll('.page-header').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // About inner text
+    document.querySelectorAll('.about-inner').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+})();
+</script>
 </body>
 </html>
