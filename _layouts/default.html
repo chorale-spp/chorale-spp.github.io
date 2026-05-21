@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f9f5ee">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" type="text/css">
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/images/choir-logo.jpg' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+</head>
+<body>
+
+<!-- ═══ NAV ════════════════════════════════════════════════════════ -->
+<nav class="site-nav" id="siteNav">
+  <a href="{{ '/' | relative_url }}" class="nav-brand">
+    <img src="{{ '/assets/images/choir-logo.jpg' | relative_url }}" alt="Chorale Saint Padre Pio" class="nav-logo">
+    <span>Chorale <em>Saint Padre Pio</em></span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %} data-i18n="nav_home">Home</a>
+    <a href="{{ '/news/' | relative_url }}"{% if page.url contains '/news' %} class="active"{% endif %} data-i18n="nav_news">News</a>
+    <a href="{{ '/gallery/' | relative_url }}"{% if page.url contains '/gallery' %} class="active"{% endif %} data-i18n="nav_gallery">Gallery</a>
+    <a href="{{ '/scores/' | relative_url }}"{% if page.url contains '/scores' %} class="active"{% endif %} data-i18n="nav_scores">Scores</a>
+    <a href="{{ '/vocal-tips/' | relative_url }}"{% if page.url contains '/vocal-tips' %} class="active"{% endif %} data-i18n="nav_tips">Vocal Tips</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="active"{% endif %} data-i18n="nav_about">About</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ CONTENT ════════════════════════════════════════════════════ -->
+<main class="page-wrap page-enter">
+  {{ content }}
+</main>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-brand">Chorale <em>Saint Padre Pio</em></div>
+  <nav class="footer-links">
+    <a href="{{ '/' | relative_url }}" data-i18n="nav_home">Home</a>
+    <a href="{{ '/news/' | relative_url }}" data-i18n="nav_news">News</a>
+    <a href="{{ '/gallery/' | relative_url }}" data-i18n="nav_gallery">Gallery</a>
+    <a href="{{ '/scores/' | relative_url }}" data-i18n="nav_scores">Scores</a>
+    <a href="{{ '/vocal-tips/' | relative_url }}" data-i18n="nav_tips">Vocal Tips</a>
+    <a href="{{ '/about/' | relative_url }}" data-i18n="nav_about">About</a>
+  </nav>
+  <p class="footer-copy">© {{ site.time | date: "%Y" }} Chorale Saint Padre Pio · Est. 2022</p>
+</footer>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="{{ '/assets/js/i18n.js' | relative_url }}"></script>
+<script>
+  // Init icons
+  lucide.createIcons();
+
+  // Mobile nav toggle
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    const brand = document.querySelector('.nav-brand');
+    const siteNav = document.getElementById('siteNav');
+    const open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      siteNav.style.background = 'var(--black)';
+      siteNav.style.borderBottomColor = 'rgba(212,172,66,.25)';
+      if (brand) brand.style.color = 'rgba(255,255,255,.75)';
+    } else {
+      siteNav.style.background = '';
+      siteNav.style.borderBottomColor = '';
+      if (brand) brand.style.color = '';
+    }
+  }
+
+  // Close menu on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+      document.body.style.overflow = '';
+      const siteNav = document.getElementById('siteNav');
+      const brand = document.querySelector('.nav-brand');
+      siteNav.style.background = '';
+      siteNav.style.borderBottomColor = '';
+      if (brand) brand.style.color = '';
+    });
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', e => {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+{% if page.layout == 'gallery' or page.url contains '/gallery' %}
+<script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+{% endif %}
+
+<script>
+// ── Scroll-reveal observer ──────────────────────────────────────────────────
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  function initReveal() {
+    // Section headers
+    document.querySelectorAll('.section-header').forEach(function(el) {
+      io.observe(el);
+    });
+    // Individual cards as a group
+    document.querySelectorAll('.tile-grid, .news-grid, .posts-grid, .values-grid, .gallery-grid').forEach(function(el) {
+      el.classList.add('reveal-group');
+      io.observe(el);
+    });
+    // Score items one by one
+    document.querySelectorAll('.score-item').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // Related cards in post
+    document.querySelectorAll('.related-card').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 0.1) + 's';
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // Page header
+    document.querySelectorAll('.page-header').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+    // About inner text
+    document.querySelectorAll('.about-inner').forEach(function(el) {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+})();
+</script>
+</body>
+</html>
