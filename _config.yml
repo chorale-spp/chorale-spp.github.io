@@ -1,0 +1,56 @@
+title: "Chorale Saint Padre Pio"
+tagline: "Where voices become one"
+description: "Official portal for Chorale Saint Padre Pio — scores, news, gallery, and vocal tips."
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /vocal-tips/:title/
+  posts_fr:
+    output: true
+    permalink: /conseils-vocaux/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "en"
+  - scope:
+      path: "_posts/fr"
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "fr" 
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Chorale Saint Padre Pio"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - assets/css/main.scss
