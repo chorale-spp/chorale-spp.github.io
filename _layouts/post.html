@@ -1,0 +1,103 @@
+---
+layout: default
+---
+<div class="post-wrap">
+  <a href="{{ '/vocal-tips/' | relative_url }}" class="post-back">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    <span data-i18n="btn_back_tips">Back to Vocal Tips</span>
+  </a>
+
+  <article>
+    <header class="post-header">
+      {% if page.tags and page.tags.size > 0 %}
+      <span class="post-tag">{{ page.tags | first }}</span>
+      {% elsif page.category %}
+      <span class="post-tag">{{ page.category }}</span>
+      {% endif %}
+      <h1 class="post-title-lg">{{ page.title }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.author %}
+        <span class="post-meta-sep">·</span>
+        <span>{{ page.author }}</span>
+        {% endif %}
+        {% if page.read_time %}
+        <span class="post-meta-sep">·</span>
+        <span>{{ page.read_time }} <span data-i18n="post_meta_read">min read</span></span>
+        {% endif %}
+      </div>
+      <div class="post-divider"></div>
+    </header>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+
+  <!-- Related posts — same language as current post -->
+  {% assign post_lang = page.lang | default: 'en' %}
+  {% assign post_ref  = page.ref %}
+  {% if post_lang == 'fr' %}
+    {% assign candidate_posts = site.posts | where: "lang", "fr" %}
+  {% else %}
+    {% assign candidate_posts = site.posts | where_exp: "p", "p.lang != 'fr'" %}
+  {% endif %}
+  {% assign related = candidate_posts | where_exp: "p", "p.url != page.url" | limit: 3 %}
+
+  {% if related.size > 0 %}
+  <hr style="border:none;border-top:1px solid rgba(212,172,66,.15);margin:3rem 0 2rem">
+  <h3 style="font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--black);margin-bottom:1.5rem">
+    <em style="color:var(--gold)" data-i18n="tips_more">More Vocal Tips</em>
+  </h3>
+  <div style="display:flex;flex-direction:column;gap:.75rem">
+    {% for p in related %}
+    <a href="{{ p.url | relative_url }}" class="related-card">
+      <div style="flex:1">
+        {% if p.tags and p.tags.size > 0 %}<div class="post-tag" style="margin-bottom:.35rem">{{ p.tags | first }}</div>{% endif %}
+        <div style="font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--white)">{{ p.title }}</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem">{{ p.date | date: "%B %-d, %Y" }}</div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Language switcher hint — link to the other-language version of this post -->
+  {% if page.ref %}
+  {% if post_lang == 'en' %}
+    {% assign other = site.posts | where: "ref", post_ref | where: "lang", "fr" | first %}
+    {% if other %}
+    <div class="post-lang-hint">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Cet article est aussi disponible en <a href="{{ other.url | relative_url }}">français</a>.
+    </div>
+    {% endif %}
+  {% else %}
+    {% assign other = site.posts | where: "ref", post_ref | where_exp: "p", "p.lang != 'fr'" | first %}
+    {% if other %}
+    <div class="post-lang-hint">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      This article is also available in <a href="{{ other.url | relative_url }}">English</a>.
+    </div>
+    {% endif %}
+  {% endif %}
+  {% endif %}
+</div>
+
+<style>
+.post-lang-hint {
+  display: flex; align-items: center; gap: .5rem;
+  margin-top: 2.5rem;
+  padding: .9rem 1.25rem;
+  background: rgba(212,172,66,.08);
+  border: 1px solid rgba(212,172,66,.2);
+  border-radius: var(--radius);
+  font-size: .82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.post-lang-hint a { color: var(--gold); border-bottom: 1px solid rgba(212,172,66,.4); }
+.post-lang-hint a:hover { border-bottom-color: var(--gold); }
+.post-lang-hint svg { flex-shrink: 0; color: var(--gold); }
+</style>
