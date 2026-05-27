@@ -7,7 +7,19 @@
 - src: "/assets/images/gallery/event2.jpg"
   caption: "Rehearsal — Spring Season"
   category: "Rehearsals"
-
+  
+- src: "/assets/images/gallery/event7.jpg"
+  caption: "Rehearsal — Spring Season"
+  category: "Rehearsals"
+  
+- src: "/assets/images/gallery/event8.jpg"
+  caption: "Rehearsal — Spring Season"
+  category: "Rehearsals"
+  
+- src: "/assets/images/gallery/event9.jpg"
+  caption: "Rehearsal — Spring Season"
+  category: "Rehearsals"
+  
 - src: "/assets/images/gallery/event3.jpg"
   caption: "Feast Day Celebration"
   category: "Celebrations"
